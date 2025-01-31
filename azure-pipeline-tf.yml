@@ -37,6 +37,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/terraform'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/terraform'
     ArtifactName: 'tf-plan'
     publishLocation: 'Container'
