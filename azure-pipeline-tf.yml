@@ -19,6 +19,6 @@ steps:
     backendAzureRmUseEnvironmentVariablesForAuthentication: false
     backendServiceArm: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
     backendAzureRmResourceGroupName: '$(storage_account_name)'
-    backendAzureRmStorageAccountName: 't$(storage_account_name)'
+    backendAzureRmStorageAccountName: '$(storage_account_name)'
     backendAzureRmContainerName: '$(container_name)'
     backendAzureRmKey: '$(key)'
