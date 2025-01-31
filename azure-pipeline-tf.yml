@@ -31,12 +31,12 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-    commandOptions: '-var-file environments/dev/terraform.tfvars -out=tf-plan'
+    commandOptions: '-var-file environments/dev/terraform.tfvars'
     environmentServiceNameAzureRM: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
 
 
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/terraform'
-    ArtifactName: 'tf-plan'
+    ArtifactName: 'plan'
     publishLocation: 'Container'
