@@ -18,7 +18,7 @@ steps:
     commandOptions: '-var-file ./environments/dev/terraform.tfvars'
     backendAzureRmUseEnvironmentVariablesForAuthentication: false
     backendServiceArm: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
-    backendAzureRmResourceGroupName: '$(resource_group_name)'
-    backendAzureRmStorageAccountName: '$(storage_account_name)'
-    backendAzureRmContainerName: '$(container_name)'
-    backendAzureRmKey: '$(key)'
+    backendAzureRmResourceGroupName: 'todo-app'
+    backendAzureRmStorageAccountName: 'tododevtf'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'terraform.tfstate'
