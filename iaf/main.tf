@@ -1,8 +1,5 @@
 # Resource Group
-module "resource_group" {
-  source  = "Azure/resource-group/azurerm"
-  version = "3.0.0"
-
+resource "azurerm_resource_group" "rg" {
   name     = "rg-todo-${var.environment}"
   location = var.location
 }
