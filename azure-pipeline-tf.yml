@@ -5,20 +5,20 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UseTerraform@0
+
+- task: TerraformInstaller@1
   inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/iaf'
-    backendServiceArm: 'ARM_SERVICE_CONNECTION'
-    backendAzureRmResourceGroupName: '$(resource_group_name)'
-    backendAzureRmStorageAccountName: '$(storage_account_name)'
+    commandOptions: '-var-file ./environments/dev/terraform.tfvars'
+    backendAzureRmUseEnvironmentVariablesForAuthentication: false
+    backendServiceArm: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
+    backendAzureRmResourceGroupName: '$(storage_account_name)'
+    backendAzureRmStorageAccountName: 't$(storage_account_name)'
     backendAzureRmContainerName: '$(container_name)'
     backendAzureRmKey: '$(key)'
-
-- task: UseTerraform@0
-  inputs:
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/iaf'
-    environmentServiceNameAzureRM: 'ARM_SERVICE_CONNECTION'
-    commandOptions: '-out=tfplan'
-    varFile: '$(System.DefaultWorkingDirectory)/iaf/terraform.tfvars'
