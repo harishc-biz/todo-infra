@@ -1,0 +1,24 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UseTerraform@0
+  inputs:
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/iaf'
+    backendServiceArm: 'ARM_SERVICE_CONNECTION'
+    backendAzureRmResourceGroupName: '$(resource_group_name)'
+    backendAzureRmStorageAccountName: '$(storage_account_name)'
+    backendAzureRmContainerName: '$(container_name)'
+    backendAzureRmKey: '$(key)'
+
+- task: UseTerraform@0
+  inputs:
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/iaf'
+    environmentServiceNameAzureRM: 'ARM_SERVICE_CONNECTION'
+    commandOptions: '-out=tfplan'
+    varFile: '$(System.DefaultWorkingDirectory)/iaf/terraform.tfvars'
