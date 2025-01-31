@@ -7,8 +7,8 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_container_registry" "acr" {
   
   name                     = "acr-todo-${var.environment}"
-  resource_group_name      = module.resource_group.name
-  location                 = module.resource_group.location
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = var.location
   sku                      = "Basic"
   admin_enabled            = true
 }
@@ -20,7 +20,7 @@ module "aks" {
   version = "9.3.0"
 
   cluster_name = "aks-todo-list-${var.environment}"
-  resource_group_name = module.resource_group.name
-  location            = module.resource_group.location
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = var.location
 
 }
