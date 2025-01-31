@@ -1,10 +1,6 @@
-provider "azurerm" {
-  features {}
-}
-
 # Resource Group
 module "resource_group" {
-  source  = "azurerm/resources/azurerm"
+  source  = "Azure/resource-group/azurerm"
   version = "3.0.0"
 
   name     = "rg-todo-${var.environment}"
