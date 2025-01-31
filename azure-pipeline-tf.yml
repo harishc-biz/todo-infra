@@ -14,7 +14,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/iaf'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
     commandOptions: '-var-file ./environments/dev/terraform.tfvars'
     backendAzureRmUseEnvironmentVariablesForAuthentication: false
     backendServiceArm: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
@@ -22,3 +22,15 @@ steps:
     backendAzureRmStorageAccountName: 'tododevtf'
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'terraform.tfstate'
+
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+    commandOptions: '-var-file ./environments/dev/terraform.tfvars'
+    environmentServiceNameAzureRM: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
+
+
+
