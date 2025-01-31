@@ -14,12 +14,21 @@ resource "azurerm_container_registry" "acr" {
 
 
 # Azure Kubernetes Service (AKS)
-module "aks" {
-  source  = "Azure/aks/azurerm"
-  version = "9.3.0"
-
-  cluster_name = "aks-todo-list-${var.environment}"
-  resource_group_name = data.azurerm_resource_group.rg.name
+resource "azurerm_kubernetes_cluster" "aks" {
+  name                = "aks-todo-${var.environment}"
   location            = var.location
+  resource_group_name = data.azurerm_resource_group.rg.name
+  dns_prefix          = "aks-todo-${var.environment}"
+  kubernetes_version  = "1.30"
+  node_resource_group = "MC_${data.azurerm_resource_group.rg.name}_aks-todo-${var.environment}"
 
+  default_node_pool {
+    name       = "default"
+    node_count = 1
+    vm_size    = "Standard_B2s"  
+  }
+
+  tags = {
+    Environment = var.environment
+  }
 }
