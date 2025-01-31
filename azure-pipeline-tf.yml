@@ -31,7 +31,7 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-    commandOptions: '-var-file environments/dev/terraform.tfvars -out=plan-$(Build.BuildId)'
+    commandOptions: '-var-file environments/dev/terraform.tfvars -out=tf-plan'
     environmentServiceNameAzureRM: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
 
 
