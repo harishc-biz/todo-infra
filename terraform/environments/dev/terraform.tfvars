@@ -1,5 +1,5 @@
 environment = "dev"
-location    = "East US"
+location    = "South India"
 resource_group_name  = "todo-app"
 storage_account_name = "tododevtf"
 container_name       = "tfstate"
