@@ -28,3 +28,13 @@ variable "key" {
   description = "The key for the state file"
   type        = string
 }
+
+variable "client_id" {
+  description = "The client id of the service principal"
+  type        = string
+}
+
+variable "client_secret" {
+  description = "The client secret of the service principal"
+  type        = string
+}
