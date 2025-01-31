@@ -7,6 +7,7 @@ pool:
 steps:
 
 - task: TerraformInstaller@1
+  displayName: 'Install Terraform'
   inputs:
     terraformVersion: 'latest'
 
@@ -16,7 +17,7 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-    commandOptions: '-var-file ./environments/dev/terraform.tfvars'
+    commandOptions: '-var-file $(System.DefaultWorkingDirectory)/terraform/environments/dev/terraform.tfvars'
     backendAzureRmUseEnvironmentVariablesForAuthentication: false
     backendServiceArm: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
     backendAzureRmResourceGroupName: 'todo-app'
