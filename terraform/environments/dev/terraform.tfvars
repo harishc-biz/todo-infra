@@ -1,6 +1,6 @@
 environment = "dev"
 location    = "South India"
-resource_group_name  = "todo-app"
+resource_group_name  = "106644"
 storage_account_name = "tododevtf"
 container_name       = "tfstate"
 key                  = "terraform.tfstate"
