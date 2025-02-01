@@ -43,11 +43,11 @@ steps:
     commandOptions: '-var-file environments/dev/terraform.tfvars -auto-approve'
     environmentServiceNameAzureRM: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)'
 
-- task: TerraformTaskV4@4
-  displayName: 'terraform destroy'
-  inputs:
-    provider: 'azurerm'
-    command: 'destroy'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-    commandOptions: '-var-file environments/dev/terraform.tfvars -auto-approve'
-    environmentServiceNameAzureRM: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)' 
+# - task: TerraformTaskV4@4
+#   displayName: 'terraform destroy'
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'destroy'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+#     commandOptions: '-var-file environments/dev/terraform.tfvars -auto-approve'
+#     environmentServiceNameAzureRM: 'harish(7988383d-5947-4e42-bede-64c7eb8aa983)' 
